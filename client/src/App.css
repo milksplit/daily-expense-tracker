@@ -1,0 +1,238 @@
+/* Notebook-styled background */
+body {
+  background-color: #fef8e6;
+  background-image: 
+      linear-gradient(to right, transparent 0%, transparent 5%, red 5%, red 5.5%, transparent 5.5%, transparent 100%), 
+      repeating-linear-gradient(to bottom, transparent 0px, transparent 22px, #b3b3b3 22px, #b3b3b3 23px);
+  background-size: 100% auto, 100% auto;
+  background-position: left top, left top;
+  background-attachment: fixed;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Creating the left punched hole effect */
+body::before {
+  content: "";
+  position: fixed;
+  left: 10px;
+  top: 0;
+  width: 20px;
+  height: 100vh;
+  background: radial-gradient(circle at center, black 8px, transparent 9px);
+  background-size: 20px 40px;
+  background-repeat: repeat-y;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Expense container */
+.expenses-container {
+  background: #fff8d6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+}
+
+/* Expense header */
+.expenses-container h1 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #5a4335;
+  background: #fff3e0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 🚀 Implemented .input-group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff8e1;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+/* Styling for inputs */
+.input-group input {
+  padding: 10px;
+  border: 2px solid #f4d7a3;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #fffaeb;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-group input:focus {
+  border-color: #ffb74d;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 183, 77, 0.5);
+}
+
+/* 🚀 Standardized button styling */
+button {
+  padding: 10px;
+  border: none;
+  background: #ffa726;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #fb8c00;
+  transform: scale(1.05);
+}
+
+button:active {
+  background: #f57c00;
+}
+
+/* 🚀 List & Expense Card Styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-item {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px auto;
+  background-color: #fff9e6;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.expense-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 🚀 Delete Animation */
+@keyframes fadeOut {
+  from {
+      background-color: #ffcccc;
+      opacity: 1;
+  }
+  to {
+      background-color: red;
+      opacity: 0;
+      transform: scale(0.95);
+  }
+}
+
+.delete-animate {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+/* 🚀 Save Animation */
+@keyframes flashGreen {
+  0% {
+      background-color: #b3ffb3;
+  }
+  100% {
+      background-color: #fff;
+  }
+}
+
+.save-animate {
+  animation: flashGreen 0.5s ease-in-out forwards;
+}
+
+/* 🚀 Edit Mode */
+.editing-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+/* Edit Mode Inputs */
+.editing-container input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.editing-container input:focus {
+  border-color: #f4a261;
+  outline: none;
+}
+
+/* 🚀 Button Groups */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 100px;
+}
+
+/* Save & Cancel Buttons */
+.save-btn {
+  background-color: #2a9d8f;
+}
+
+.save-btn:hover {
+  background-color: #21867a;
+}
+
+.cancel-btn {
+  background-color: #e63946;
+}
+
+.cancel-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #e63946;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+.delete-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Editing Mode */
+.editing {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  background: #ffebc5;
+  padding: 12px;
+  border-radius: 5px;
+}
